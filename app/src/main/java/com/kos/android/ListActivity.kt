@@ -27,7 +27,7 @@ class ListActivity : AppCompatActivity() {
 		}
 		binding.items = penList()
 
-		binding.executePendingBindings()
+
 	}
 
 
@@ -40,6 +40,7 @@ class ListActivity : AppCompatActivity() {
 		ItemPen("CYAN", Color.CYAN),
 		ItemPen("GRAY", Color.GRAY),
 		ItemPen("RED", Color.RED),
-		ItemPen("MAGENTA", Color.MAGENTA)
+		ItemPen("MAGENTA", Color.MAGENTA),
+		ItemPen("LTGRAY", Color.LTGRAY)
 	)
 }
