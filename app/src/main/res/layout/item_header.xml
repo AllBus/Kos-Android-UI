@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+	<data>
+		<variable
+			name="modelView"
+			type="com.kos.android.ItemHeader" />
+		<variable
+			name="listener"
+			type="com.kos.android.list.OnItemClick" />
+	</data>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:layout_margin="20dp"
+	android:onClick="@{() -> listener.onCardClick(modelView)}"
+	>
+
+	<TextView
+		android:id="@+id/header"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:textSize="20sp"
+		android:gravity="center_horizontal"
+		android:text="@{modelView.header}"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		/>
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
