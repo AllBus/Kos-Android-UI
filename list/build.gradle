@@ -5,10 +5,6 @@ plugins {
 	id "maven-publish"
 }
 
-
-group = "com.github.AllBus"
-version = 1.0
-
 android {
 	compileSdk 31
 
@@ -51,4 +47,34 @@ dependencies {
 	testImplementation 'junit:junit:4.+'
 	androidTestImplementation 'androidx.test.ext:junit:1.1.3'
 	androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+}
+
+//install {
+//	repositories.mavenInstaller {
+//		addFilter('list') { artifact, file -> artifact.name.endsWith('list') }
+//		//addFilter('impl') { artifact, file -> artifact.name.endsWith('impl') }
+//	}
+//}
+
+
+task androidJavadocs(type: Javadoc) {
+	source = android.sourceSets.main.java.sourceFiles
+}
+
+task androidJavadocsJar(type: Jar) {
+	classifier = 'javadoc'
+	//basename = artifact_id
+	from androidJavadocs.destinationDir
+}
+
+task androidSourcesJar(type: Jar) {
+	classifier = 'sources'
+	//basename = artifact_id
+	from android.sourceSets.main.java.sourceFiles
+}
+
+artifacts {
+	//archives packageReleaseJar
+	archives androidSourcesJar
+	archives androidJavadocsJar
 }

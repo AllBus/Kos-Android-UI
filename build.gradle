@@ -13,6 +13,10 @@ buildscript {
 	}
 }
 
+plugins {
+	id "maven-publish"
+}
+
 
 ext {
 	compileSdkVersion = 31
@@ -45,6 +49,13 @@ ext {
 	robolectricVersion = '4.3'
 }
 
+allprojects {
+	version = VERSION_NAME
+	group = GROUP
+
+}
+
 task clean(type: Delete) {
 	delete rootProject.buildDir
 }
+
